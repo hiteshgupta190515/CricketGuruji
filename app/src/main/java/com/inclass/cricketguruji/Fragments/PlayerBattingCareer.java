@@ -1,4 +1,4 @@
-package com.inclass.cricketguruji.ui.Fragments;
+package com.inclass.cricketguruji.Fragments;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,14 +10,12 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.inclass.cricketguruji.R;
-import com.inclass.cricketguruji.model.PlayerConstants;
 
 import java.util.ArrayList;
 

@@ -11,8 +11,8 @@ import android.os.Bundle;
 import com.google.android.material.tabs.TabLayout;
 import com.inclass.cricketguruji.R;
 import com.inclass.cricketguruji.model.TeamsModel;
-import com.inclass.cricketguruji.ui.DomesticTeams;
-import com.inclass.cricketguruji.ui.NationalTeams;
+import com.inclass.cricketguruji.Fragments.DomesticTeams;
+import com.inclass.cricketguruji.Fragments.NationalTeams;
 
 import java.util.ArrayList;
 import java.util.List;

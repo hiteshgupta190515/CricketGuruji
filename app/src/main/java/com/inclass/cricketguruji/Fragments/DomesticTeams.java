@@ -1,4 +1,4 @@
-package com.inclass.cricketguruji.ui;
+package com.inclass.cricketguruji.Fragments;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NationalTeams extends Fragment {
+public class DomesticTeams extends Fragment {
 
     View rootView;
     private ProgressDialog pDialog;
@@ -68,21 +68,21 @@ public class NationalTeams extends Fragment {
         super.onDetach();
     }
 
-    public static NationalTeams newInstance() {
-        NationalTeams fragment = new NationalTeams();
+    public static DomesticTeams newInstance() {
+        DomesticTeams fragment = new DomesticTeams();
         Bundle args = new Bundle();
         return fragment;
     }
 
-    public NationalTeams() {
+    public DomesticTeams() {
         // Required empty public constructor
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -115,7 +115,7 @@ public class NationalTeams extends Fragment {
                     for (int i = 0; i < matches.length(); i++) {
                         teamsModel = new TeamsModel();
                         JSONObject jsonObject1 = matches.getJSONObject(i);
-                        if (jsonObject1.getString("national_team").equals("true")) {
+                        if (jsonObject1.getString("national_team").equals("false")) {
                                     teamsModel.setId(jsonObject1.getString("id"));
                                     teamsModel.setName(jsonObject1.getString("name"));
                                     teamsModel.setCode(jsonObject1.getString("code"));

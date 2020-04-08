@@ -29,27 +29,5 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 //        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
-
-//        NestedScrollView nested_content = (NestedScrollView) findViewById(R.id.nested_scroll_view);
-//        nested_content.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
-//            @Override
-//            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-//                if (scrollY < oldScrollY) { // up
-//                    animateNavigation(false);
-//                }
-//                if (scrollY > oldScrollY) { // down
-//                    animateNavigation(true);
-//                }
-//            }
-//        });
     }
-
-//    boolean isNavigationHide = false;
-//
-//    private void animateNavigation(final boolean hide) {
-//        if (isNavigationHide && hide || !isNavigationHide && !hide) return;
-//        isNavigationHide = hide;
-//        int moveY = hide ? (2 * navView.getHeight()) : 0;
-//        navView.animate().translationY(moveY).setStartDelay(100).setDuration(300).start();
-//    }
 }

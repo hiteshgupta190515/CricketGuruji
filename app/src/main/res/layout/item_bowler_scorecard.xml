@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="@dimen/spacing_medium">
+
+        <TextView
+            android:id="@+id/bowlername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bowler"
+            android:textColor="#222"
+            android:textSize="15dp"
+            android:layout_weight="0.65"/>
+
+
+
+    <TextView
+        android:id="@+id/bowlerovers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="O"
+        android:textColor="#222"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/bowlermad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="M"
+        android:textColor="#222"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/bowlerruns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="R"
+        android:textColor="#222"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/bowlerwicket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="W"
+        android:textColor="#222"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/bowlerwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Wd"
+        android:textColor="#222"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/bowlernb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Nb"
+        android:textColor="#222"
+        android:textSize="15dp" />
+
+
+</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/grey_20"/>
+</LinearLayout>

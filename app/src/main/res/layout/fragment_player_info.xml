@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_5"
     android:orientation="vertical"
-    tools:context=".ui.Fragments.PlayerInfo">
+    tools:context=".Fragments.PlayerInfo">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/player_image"

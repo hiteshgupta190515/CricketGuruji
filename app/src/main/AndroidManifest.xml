@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.PlayerDetailActivity"></activity>
+        <activity android:name=".Activities.RecentMatchDetail"></activity>
+        <activity android:name=".Activities.PlayerDetailActivity" />
         <activity android:name=".Activities.PlayersActivity" />
         <activity
             android:name=".Activities.Splash"

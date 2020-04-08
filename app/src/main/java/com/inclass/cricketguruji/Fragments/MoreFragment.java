@@ -1,4 +1,4 @@
-package com.inclass.cricketguruji.ui;
+package com.inclass.cricketguruji.Fragments;
 
 import android.app.Activity;
 import android.content.Context;

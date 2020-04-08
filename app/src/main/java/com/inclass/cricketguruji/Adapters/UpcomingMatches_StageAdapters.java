@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.inclass.cricketguruji.R;
 import com.inclass.cricketguruji.model.Constants;
-import com.inclass.cricketguruji.ui.Fragments.UpcomingMatchesFragment;
+import com.inclass.cricketguruji.Fragments.UpcomingMatchesFragment;
 
 import java.util.ArrayList;
 

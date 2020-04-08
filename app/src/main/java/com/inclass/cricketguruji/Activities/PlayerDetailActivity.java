@@ -5,7 +5,6 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.ProgressDialog;
@@ -29,12 +28,9 @@ import com.google.android.material.tabs.TabLayout;
 import com.inclass.cricketguruji.AppController;
 import com.inclass.cricketguruji.R;
 import com.inclass.cricketguruji.model.PlayerConstants;
-import com.inclass.cricketguruji.model.StageModel;
-import com.inclass.cricketguruji.ui.DomesticTeams;
-import com.inclass.cricketguruji.ui.Fragments.PlayerBattingCareer;
-import com.inclass.cricketguruji.ui.Fragments.PlayerBowlingCareer;
-import com.inclass.cricketguruji.ui.Fragments.PlayerInfo;
-import com.inclass.cricketguruji.ui.NationalTeams;
+import com.inclass.cricketguruji.Fragments.PlayerBattingCareer;
+import com.inclass.cricketguruji.Fragments.PlayerBowlingCareer;
+import com.inclass.cricketguruji.Fragments.PlayerInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;

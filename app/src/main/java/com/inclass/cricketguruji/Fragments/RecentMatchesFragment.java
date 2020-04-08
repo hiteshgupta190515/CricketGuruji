@@ -1,4 +1,4 @@
-package com.inclass.cricketguruji.ui.Fragments;
+package com.inclass.cricketguruji.Fragments;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -25,7 +25,7 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.inclass.cricketguruji.Adapters.LiveMatches_StageAdapters;
+import com.inclass.cricketguruji.Adapters.RecentMatches_StageAdapters;
 import com.inclass.cricketguruji.AppController;
 import com.inclass.cricketguruji.R;
 import com.inclass.cricketguruji.model.Constants;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class LiveMatchesFragment extends Fragment {
+public class RecentMatchesFragment extends Fragment {
 
     Activity activity;
     private View root;
@@ -49,10 +49,10 @@ public class LiveMatchesFragment extends Fragment {
     StageModel stageModel;
     public ArrayList<Constants> upcoming_match_list = new ArrayList<Constants>();
     public ArrayList<StageModel> stage_list = new ArrayList<StageModel>();
-    public LiveMatches_StageAdapters stageAdapters;
+    public RecentMatches_StageAdapters stageAdapters;
     public ArrayList<StageModel> noRepeatStage = new ArrayList<StageModel>();
     public ArrayList<StageModel> finalfixtures = new ArrayList<StageModel>();
-    String currentdate,nextdate;
+    String currentdate;
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -66,8 +66,8 @@ public class LiveMatchesFragment extends Fragment {
         super.onDetach();
     }
 
-    public static LiveMatchesFragment newInstance() {
-        LiveMatchesFragment fragment = new LiveMatchesFragment();
+    public static RecentMatchesFragment newInstance() {
+        RecentMatchesFragment fragment = new RecentMatchesFragment();
         Bundle args = new Bundle();
         return fragment;
     }
@@ -84,23 +84,18 @@ public class LiveMatchesFragment extends Fragment {
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         currentdate = df.format(c);
-        Date newDate = new Date(c.getTime() + 86400000);
-        nextdate = df.format(newDate);
-        this.matches_recyclerView = (RecyclerView) root.findViewById(R.id.matches_recyclerView);
-        this.matches_recyclerView.setLayoutManager(new LinearLayoutManager(activity));
-        this.matches_recyclerView.setHasFixedSize(true);
+        matches_recyclerView = (RecyclerView) root.findViewById(R.id.matches_recyclerView);
+        matches_recyclerView.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
+        matches_recyclerView.setHasFixedSize(true);
 
-//        upcomingAdapters = new UpcomingAdapters(activity,this);
-//        matches_recyclerView.setAdapter(upcomingAdapters);
-        stageAdapters = new LiveMatches_StageAdapters(activity, this);
+        stageAdapters = new RecentMatches_StageAdapters(activity, this);
         matches_recyclerView.setAdapter(stageAdapters);
     }
 
     private void makeJsonArrayRequest() {
         String tag_string_req1 = "string_req";
         String urlJsonArry =
-                "https://cricket.sportmonks.com/api/v2.0/fixtures?api_token=bq9QWLmC7ykuVHn1GWdogPmaWy4Swn3Q7n2V3PBpTlang6CQf4RqRwcLGBvG&include=stage,league,visitorteam,localteam,venue" +
-                        "&filter[starts_between]="+currentdate+","+nextdate+"&sort=starting_at";
+                "https://cricket.sportmonks.com/api/v2.0/fixtures?api_token=bq9QWLmC7ykuVHn1GWdogPmaWy4Swn3Q7n2V3PBpTlang6CQf4RqRwcLGBvG&include=stage,league,visitorteam,localteam,venue&filter[starts_between]=2020-01-01,"+currentdate+"&sort=starting_at&filter[status]=Finished,Postp.,Int.,Aban.,Delayed,Cancl.";
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage("Loading...");
         pDialog.show();
@@ -120,6 +115,7 @@ public class LiveMatchesFragment extends Fragment {
                             stageModel.stageid = jsonObject1.getJSONObject("stage").getString("id");
                             stageModel.stageName = jsonObject1.getJSONObject("stage").getString("name");
                             stage_list.add(stageModel);
+
                     }
 
                     for (StageModel stages : stage_list) {
@@ -161,6 +157,7 @@ public class LiveMatchesFragment extends Fragment {
                                     constants.stageName = jsonObject2.getJSONObject("stage").getString("name");
                                     upcoming_match_list.add(constants);
                                 }
+
                         }
 
                         dm.setAllItemsInSection(upcoming_match_list);

@@ -42,8 +42,8 @@
 
                     <ImageView
                         android:id="@+id/team1_img"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
                         android:src="@drawable/flag_avatar" />
 
                     <TextView
@@ -91,8 +91,8 @@
 
                     <ImageView
                         android:id="@+id/team2_img"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="55dp"
+                        android:layout_height="55dp"
                         android:src="@drawable/flag_avatar" />
 
                     <TextView

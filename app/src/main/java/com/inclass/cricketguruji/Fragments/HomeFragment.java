@@ -1,4 +1,4 @@
-package com.inclass.cricketguruji.ui;
+package com.inclass.cricketguruji.Fragments;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -7,15 +7,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.AuthFailureError;
@@ -29,12 +29,10 @@ import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.inclass.cricketguruji.Activities.PlayersActivity;
 import com.inclass.cricketguruji.Adapters.HomePageAdapter;
 import com.inclass.cricketguruji.AppController;
 import com.inclass.cricketguruji.R;
 import com.inclass.cricketguruji.model.LiveMatch;
-import com.inclass.cricketguruji.model.PlayerConstants;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -49,11 +47,50 @@ public class HomeFragment extends Fragment {
     public ArrayList<LiveMatch> liveMatchArrayList = new ArrayList<LiveMatch>();
     HomePageAdapter homePageAdapter;
     ViewPager viewPager;
+    Toolbar toolbar;
+    LinearLayout upcoming_btn,recent_btn;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        toolbar = root.findViewById(R.id.toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Home");
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
+        upcoming_btn = root.findViewById(R.id.upcoming_btn);
+        upcoming_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MatchesFragment matchesFragment = new MatchesFragment();
+                Bundle arguments = new Bundle();
+                arguments.putString( "tabs" , "1");
+                matchesFragment.setArguments(arguments);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                fragmentTransaction.replace(R.id.nav_host_fragment, matchesFragment);
+                fragmentTransaction.addToBackStack(null).commit();
+            }
+        });
+
+        recent_btn = root.findViewById(R.id.recent_btn);
+        recent_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MatchesFragment matchesFragment = new MatchesFragment();
+                Bundle arguments = new Bundle();
+                arguments.putString( "tabs" , "2");
+                matchesFragment.setArguments(arguments);
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                fragmentTransaction.replace(R.id.nav_host_fragment, matchesFragment);
+                fragmentTransaction.addToBackStack(null).commit();
+            }
+        });
         makeJsonArrayRequest();
         return root;
     }

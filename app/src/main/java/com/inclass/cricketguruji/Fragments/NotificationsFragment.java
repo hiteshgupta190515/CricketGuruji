@@ -1,4 +1,4 @@
-package com.inclass.cricketguruji.ui.Fragments;
+package com.inclass.cricketguruji.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,8 +16,8 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.inclass.cricketguruji.R;
-import com.inclass.cricketguruji.ui.Fragments.UpcomingMatchesFragment;
-import com.inclass.cricketguruji.ui.Fragments.LiveMatchesFragment;
+import com.inclass.cricketguruji.Fragments.UpcomingMatchesFragment;
+import com.inclass.cricketguruji.Fragments.LiveMatchesFragment;
 
 import java.util.ArrayList;
 import java.util.List;
